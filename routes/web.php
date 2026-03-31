@@ -9,9 +9,11 @@ Route::get('/', function () {
     // $posts = Post::all(); 
     // $posts = Post::where('user_id', auth()->id())->get(); 
     $posts = []; 
-    $posts = auth()->user()->usersCoolPosts()->latest()->get(); 
+    if(auth()->check()) {
+        $posts = auth()->user()->usersCoolPosts()->latest()->get(); 
+    }
     return view('home', ['posts' => $posts]); 
-});
+}); 
 
 Route::post('/register', [UserController::class, 'register']); 
 Route::post('login', [UserController::class, 'login']); 
