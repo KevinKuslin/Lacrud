@@ -11,7 +11,13 @@ use Illuminate\Notifications\Notifiable;
 class User extends Authenticatable
 {
     /** @use HasFactory<UserFactory> */
-    use HasFactory, Notifiable;
+    use HasFactory, Notifiable; 
+
+    protected $fillable = [
+        'name',
+        'email',
+        'password',
+    ];
 
     public function usersCoolPosts() {
         // mengembalikan relasi Post (semua Post dari user_id) 
