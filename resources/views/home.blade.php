@@ -30,7 +30,8 @@
                     <p><a href="/edit-post/{{$post->id}}">Edit</a></p>
                     <form action="/delete-post/{{$post->id}}" method="POST">
                         @csrf 
-                        
+                        @method('DELETE')
+                        <button>Delete</button>
                     </form>
                 </div>
             @endforeach 
